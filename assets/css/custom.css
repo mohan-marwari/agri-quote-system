@@ -1,0 +1,198 @@
+/* Custom Quote Button */
+.custom-quote-btn {
+    position: relative;
+    z-index: 10;
+    background: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.product:hover .custom-quote-btn {
+    z-index: 11;
+}
+
+/* Quote Modal */
+#customQuoteModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 99999 !important;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Backdrop should cover everything */
+#customQuoteModal::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999998;
+}
+
+
+.quote-modal-content {
+    pointer-events: all;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 999999 !important;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000000 !important;
+}
+
+/* Form Styles */
+.quote-form-group {
+    margin-bottom: 15px;
+}
+
+.quote-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.quote-form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-quote-btn {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-quote-btn:hover {
+    opacity: 0.9;
+}
+
+/* Add these new styles for country code selector */
+.phone-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.country-code-select {
+    flex: 0 0 120px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.phone-number-input {
+    flex: 1;
+}
+
+/* Flag dropdown styles (optional) */
+.country-code-select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Add placeholder styling */
+.quote-form-control::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+.quote-form-control::-ms-input-placeholder {
+    color: #999;
+}
+
+.quote-form-control:-ms-input-placeholder {
+    color: #999;
+}
+
+/* Make placeholders visible when focused */
+.quote-form-control:focus::placeholder {
+    color: #ccc;
+}
+
+/* Phone input specific placeholder styling */
+.phone-number-input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+/* Make sure nothing in the theme is above our modal */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Ensure theme elements stay below modal */
+.header, 
+.footer, 
+.ct-sidebar, 
+.ct-floating-bar,
+.woocommerce-notices-wrapper {
+    z-index: auto !important;
+}
+
+/* New overlay and container structure */
+.quote-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999998;
+}
+
+.quote-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    pointer-events: none;
+}
+
+.quote-modal-content {
+    pointer-events: all;
+    /* Rest of your existing modal content styles */
+}
+
