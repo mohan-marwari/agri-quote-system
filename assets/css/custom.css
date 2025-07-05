@@ -1,9 +1,3 @@
-/* Fix for product cards modal */
-.products .product {
-    position: relative;
-    z-index: 1 !important; /* Reset z-index for product cards */
-}
-
 /* Custom Quote Button */
 .custom-quote-btn {
     position: relative;
@@ -25,39 +19,25 @@
 
 /* Quote Modal */
 #customQuoteModal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    background: rgba(0,0,0,0.7);
+    z-index: 99999;
     justify-content: center;
     align-items: center;
-    z-index: 999999 !important;
 }
-
-/* Backdrop should cover everything */
-#customQuoteModal::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 999998;
-}
-
 
 .quote-modal-content {
-    position: relative;
-    z-index: 999999 !important;
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 5px;
     width: 90%;
     max-width: 500px;
-    margin: 20px;
+    position: relative;
 }
 
 .modal-close-btn {
@@ -66,7 +46,6 @@
     right: 15px;
     font-size: 24px;
     cursor: pointer;
-    z-index: 1000000 !important;
 }
 
 /* Form Styles */
@@ -100,108 +79,4 @@
 
 .submit-quote-btn:hover {
     opacity: 0.9;
-}
-
-/* Add these new styles for country code selector */
-.phone-input-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.country-code-select {
-    flex: 0 0 120px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: white;
-}
-
-.phone-number-input {
-    flex: 1;
-}
-
-/* Flag dropdown styles (optional) */
-.country-code-select {
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 16px;
-    padding-right: 30px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-/* Add placeholder styling */
-.quote-form-control::placeholder {
-    color: #999;
-    opacity: 1;
-}
-
-.quote-form-control::-ms-input-placeholder {
-    color: #999;
-}
-
-.quote-form-control:-ms-input-placeholder {
-    color: #999;
-}
-
-/* Make placeholders visible when focused */
-.quote-form-control:focus::placeholder {
-    color: #ccc;
-}
-
-/* Phone input specific placeholder styling */
-.phone-number-input::placeholder {
-    color: #999;
-    font-size: 14px;
-}
-
-/* Make sure nothing in the theme is above our modal */
-body.modal-open {
-    overflow: hidden;
-}
-
-/* Ensure theme elements stay below modal */
-.header, 
-.footer, 
-.ct-sidebar, 
-.ct-floating-bar,
-.woocommerce-notices-wrapper {
-    z-index: auto !important;
-}
-
-/* New overlay and container structure */
-.quote-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    z-index: 999998 !important;
-}
-
-.quote-modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    pointer-events: none;
-}
-
-/* Fix for Blocksy specific elements */
-.ct-header, .ct-footer, .ct-sidebar {
-    z-index: 100 !important;
-}
-
-/* Prevent body scrolling when modal is open */
-body.modal-open {
-    overflow: hidden;
 }

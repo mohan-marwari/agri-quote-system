@@ -1,25 +1,16 @@
 jQuery(document).ready(function($) {
     // Open modal when any quote button is clicked
     $(document).on('click', '.custom-quote-btn', function() {
-        // Get product details
         var productId = $(this).data('product-id');
         var productName = $(this).data('product-name');
         
-        // Set product info in form
         $('#customQuoteProductId').val(productId);
         $('#customQuoteProductName').val(productName);
-
-        // Show modal
-        $('body').addClass('modal-open');
-        $('#customQuoteModal').css({
-            'display': 'flex',
-            'position': 'fixed'
-        });
+        $('#customQuoteModal').css('display', 'flex');
     });
     
-    // Close modal handler
-    $(document).on('click', '.modal-close-btn, .quote-modal-overlay', function() {
-        $('body').removeClass('modal-open');
+    // Close modal
+    $('.modal-close-btn').click(function() {
         $('#customQuoteModal').hide();
     });
     
@@ -29,21 +20,13 @@ jQuery(document).ready(function($) {
             $('#customQuoteModal').hide();
         }
     });
-    
-       // Prevent modal content from closing when clicking inside
-    $('.quote-modal-content').click(function(e) {
-        e.stopPropagation();
-    });
 
-   // AJAX form submission
+    // AJAX form submission
     $('#customQuoteForm').submit(function(e) {
         e.preventDefault();
 
         var $form = $(this);
         var $submitBtn = $form.find('button[type="submit"]');
-        var countryCode = $('#countryCode').val();
-        var mobileNumber = $('input[name="mobile"]').val();
-        var fullPhoneNumber = countryCode + mobileNumber;
         
         $submitBtn.text('Sending...').prop('disabled', true);
         
@@ -55,7 +38,7 @@ jQuery(document).ready(function($) {
                 product_name: $('#customQuoteProductName').val(),
                 quantity: $('input[name="quantity"]').val(),
                 unit: $('select[name="unit"]').val(),
-                mobile: fullPhoneNumber, // Now includes country code
+                mobile: $('input[name="mobile"]').val(),
                 email: $('input[name="email"]').val(),
                 security: $('#quote_nonce').val()
             },
