@@ -1,6 +1,6 @@
 <div id="customQuoteModal" style="display:none;">
     <div class="quote-modal-overlay"></div>
-    <div class="quote-modal-container">
+    <div class="quote-modal-content-wrapper">
     <div class="quote-modal-content">
         <span class="modal-close-btn">&times;</span>
         <h3>Get a Quick Quote</h3>

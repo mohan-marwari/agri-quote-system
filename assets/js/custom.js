@@ -1,16 +1,25 @@
 jQuery(document).ready(function($) {
     // Open modal when any quote button is clicked
     $(document).on('click', '.custom-quote-btn', function() {
+        // Get product details
         var productId = $(this).data('product-id');
         var productName = $(this).data('product-name');
         
+        // Set product info in form
         $('#customQuoteProductId').val(productId);
         $('#customQuoteProductName').val(productName);
-        $('#customQuoteModal').css('display', 'flex');
+
+        // Show modal
+        $('body').addClass('modal-open');
+        $('#customQuoteModal').css({
+            'display': 'flex',
+            'position': 'fixed'
+        });
     });
     
-    // Close modal
-    $('.modal-close-btn').click(function() {
+    // Close modal handler
+    $(document).on('click', '.modal-close-btn, .quote-modal-overlay', function() {
+        $('body').removeClass('modal-open');
         $('#customQuoteModal').hide();
     });
     
